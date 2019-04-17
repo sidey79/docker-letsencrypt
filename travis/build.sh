@@ -8,7 +8,7 @@ DOCKER_USER="Sidey79"
 DOCKER_IMAGE="rpi-nginx-letsencrypt"
 DOCKER_TAG="latest"
 
-#buildctl build --frontend dockerfile.v0 \
+buildctl build --frontend dockerfile.v0 \
        --frontend-opt platform=linux/${PLATFORM} \
        --frontend-opt filename=./${DOCKERFILE_LOCATION} \
        --exporter image \
