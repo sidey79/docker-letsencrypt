@@ -4,7 +4,7 @@ docker login --username $DOCKER_USER --password $DOCKER_PASSWORD
 
 PLATFORM=arm # equivalent to armhf
 DOCKERFILE_LOCATION="./Dockerfile.armhf"
-DOCKER_USER="Sidey79"
+DOCKER_USER="sidey79"
 DOCKER_IMAGE="rpi-nginx-letsencrypt"
 DOCKER_TAG="latest"
 
