@@ -1,12 +1,11 @@
 FROM lsiobase/nginx:arm32v7-3.9
 
 # set version label
-ENV BUILD_DATE=17042019
+BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"`
 ENV VERSION=0.1
 ENV CERTBOT_VERSION=0.33.1
 LABEL build_version="Sidey79 version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="aptalca"
-
 # environment settings
 ENV DHLEVEL=2048 ONLY_SUBDOMAINS=false 
 ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=2
@@ -17,12 +16,9 @@ RUN \
 	curl \
 	gnupg \
 	nginx \
-	nginx-mod-http-fancyindex \
 	nginx-mod-http-headers-more \
-	nginx-mod-http-image-filter \
 	nginx-mod-http-lua \
 	nginx-mod-http-lua-upstream \
-	nginx-mod-http-nchan \
 	nginx-mod-http-set-misc \
 	nginx-mod-http-xslt-filter \
 	py3-cryptography \
