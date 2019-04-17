@@ -1,9 +1,9 @@
 FROM lsiobase/nginx:arm32v7-3.9
 
 # set version label
-ARG BUILD_DATE
-ARG VERSION
-ARG CERTBOT_VERSION
+ENV BUILD_DATE=17042019
+ENV VERSION=0.1
+ENV CERTBOT_VERSION=0.33.1
 LABEL build_version="Sidey79 version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="aptalca"
 
