@@ -15,4 +15,5 @@ buildctl build --frontend dockerfile.v0 \
        --exporter-opt name=docker.io/${DOCKER_USER}/${IMAGE}:${TAG}-${PLATFORM} \
        --exporter-opt push=true \
        --local dockerfile=. \
-       --local context=.
+       --local context=. \
+       --frontend-opt build-arg:BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"`
