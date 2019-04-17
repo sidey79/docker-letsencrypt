@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+set -e
 # Login into docker
 docker login --username $DOCKER_USER --password $DOCKER_PASSWORD
 
