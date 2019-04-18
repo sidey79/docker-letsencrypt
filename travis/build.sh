@@ -17,3 +17,8 @@ buildctl build --frontend dockerfile.v0 \
        --local dockerfile=. \
        --local context=. \
        --opt build-arg:BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"`
+
+
+docker pull ${DOCKER_USER}/${IMAGE}:${TAG}-${PLATFORM}
+docker tag ${DOCKER_USER}/${IMAGE}:${TAG}-${PLATFORM} ${DOCKER_USER}/${IMAGE}:${TAG}-${PLATFORM}
+docker push ${DOCKER_USER}/${IMAGE}:${TAG}-${PLATFORM}
