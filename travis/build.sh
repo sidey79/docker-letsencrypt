@@ -10,13 +10,11 @@ DOCKER_TAG="latest"
 
 buildctl build --frontend dockerfile.v0 \
        --opt platform=linux/${PLATFORM} \
-       --local dockerfile=./${DOCKERFILE_LOCATION} \
+       --local dockerfile=. \
        --local context=. \
        --opt build-arg:BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"`
-       --output type=image,name=${DOCKER_USER}/${IMAGE}:${TAG}-${PLATFORM},push=false \
        --output type=local,dest=./ \
-       
-#       --opt filename=./${DOCKERFILE_LOCATION} \
+       --opt filename=./${DOCKERFILE_LOCATION} \
 #       --output type=image,name=${DOCKER_USER}/${IMAGE}:${TAG}-${PLATFORM},push=false \
 	  
 
