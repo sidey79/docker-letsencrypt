@@ -36,6 +36,8 @@ done
 # make our folders and links
 mkdir -p \
 	/config/{log/letsencrypt,etc/letsencrypt,crontabs}
+mkdir -p /run/nginx;
+
 rm -rf /etc/letsencrypt
 ln -s /config/etc/letsencrypt /etc/letsencrypt
 
