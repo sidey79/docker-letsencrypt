@@ -13,7 +13,6 @@ buildctl build --frontend dockerfile.v0 \
        --local dockerfile=. \
        --local context=. \
        --opt build-arg:BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
-       --output type=local,dest=./ \
        --opt filename=./${DOCKERFILE_LOCATION} \
        --output type=image,name=docker.io/${DOCKER_USER}/${IMAGE}:${TAG}-${PLATFORM},push=true \
 	  
