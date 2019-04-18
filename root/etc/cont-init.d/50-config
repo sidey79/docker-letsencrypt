@@ -35,8 +35,7 @@ done
 
 # make our folders and links
 mkdir -p \
-	/config/{log/letsencrypt,etc/letsencrypt,crontabs} \
-	/var/run/fail2ban
+	/config/{log/letsencrypt,etc/letsencrypt,crontabs}
 rm -rf /etc/letsencrypt
 ln -s /config/etc/letsencrypt /etc/letsencrypt
 
