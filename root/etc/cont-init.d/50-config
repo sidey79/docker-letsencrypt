@@ -35,28 +35,20 @@ done
 
 # make our folders and links
 mkdir -p \
-	/config/{log/letsencrypt,log/fail2ban,etc/letsencrypt,fail2ban,crontabs,dns-conf} \
+	/config/{log/letsencrypt,etc/letsencrypt,crontabs} \
 	/var/run/fail2ban
 rm -rf /etc/letsencrypt
 ln -s /config/etc/letsencrypt /etc/letsencrypt
 
 # copy dns default configs
-cp -n /defaults/dns-conf/* /config/dns-conf/
-chown -R abc:abc /config/dns-conf
 
-# copy reverse proxy configs
-cp -R /defaults/proxy-confs /config/nginx/
 
 
 # copy crontab and proxy defaults if needed
 [[ ! -f /config/crontabs/root ]] && \
 	cp /etc/crontabs/root /config/crontabs/
-[[ ! -f /config/nginx/proxy.conf ]] && \
-	cp /defaults/proxy.conf /config/nginx/proxy.conf
 [[ ! -f /config/nginx/ssl.conf ]] && \
 	cp /defaults/ssl.conf /config/nginx/ssl.conf
-[[ ! -f /config/nginx/ldap.conf ]] && \
-	cp /defaults/ldap.conf /config/nginx/ldap.conf
 
 # check to make sure DNSPLUGIN is selected if dns validation is used
 [[ "$VALIDATION" = "dns" ]] && [[ ! "$DNSPLUGIN" =~ ^(cloudflare|cloudxns|digitalocean|dnsimple|dnsmadeeasy|google|luadns|nsone|ovh|rfc2136|route53)$ ]] && \
