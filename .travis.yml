@@ -1,9 +1,11 @@
 # sudo for docker
 sudo: true
 dist: xenial
-
+go:
+  - 1.10.4
 services:
   - docker
+
 
 addons:
   apt:
