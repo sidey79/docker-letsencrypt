@@ -1,4 +1,4 @@
-FROM lsiobase/nginx:arm32v7-3.9
+FROM lsiobase/alpine:arm32v7-3.9
 
 # set version label
 ARG BUILD_DATE
@@ -12,8 +12,14 @@ ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=2
 
 RUN \
  echo "**** install runtime packages ****" && \
- apk add --no-cache --upgrade \
-	curl \
+ apk add --no-cache --upgrade
+        apache2-utils \
+	git \
+	libressl2.7-libssl \
+	logrotate \
+	nano \
+	openssl \
+        curl \
 	gnupg \
 	nginx \
 	nginx-mod-http-headers-more \
@@ -61,3 +67,7 @@ RUN \
 
 # add local files
 COPY root/ /
+
+# ports and volumes
+EXPOSE 80 443
+VOLUME /config
