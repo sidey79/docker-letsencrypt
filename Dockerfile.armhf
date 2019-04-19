@@ -30,21 +30,6 @@ RUN \
 	py3-cryptography \
 	py3-future \
 	py3-pip && \
- echo "**** removing php7 packages ****" && \
- apk del --purge --rdepends \
-	nano \
-	php7 \
-	php7-fileinfo \
-	php7-fpm \
-	php7-json \
-	php7-mbstring \
-	php7-openssl \
-	php7-session \
-	php7-simplexml \
-	php7-xml \
-	php7-xmlwriter \
-	php7-zlib && \
-
  echo "**** install certbot plugins ****" && \
  if [ -z ${CERTBOT_VERSION+x} ]; then \
         CERTBOT="certbot"; \
