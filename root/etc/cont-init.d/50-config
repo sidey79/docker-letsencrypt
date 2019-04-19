@@ -15,6 +15,8 @@ DNSPLUGIN=${DNSPLUGIN}\\n\
 EMAIL=${EMAIL}\\n\
 STAGING=${STAGING}\\n"
 
+DHFPATH=$(grep /etc/nginx/conf.d/*.conf -e '^[[:space:]]*ssl_dhparam'  | awk '{print $3}' | tr -d ';')
+
 # Echo init finish for test runs
 if [ -n "${TEST_RUN}" ]; then
 	echo '[services.d] done.'
@@ -75,8 +77,8 @@ if [ -z "$VALIDATION" ]; then
 fi
 
 # compare dhparams existence and level, create if necessary
-if [ ! "$DHLEVEL" = "$ORIGDHLEVEL" ]; then
-  rm -rf /etc/nginx/dhparams.pem
+if [ ! -z "$DHFPATH" && ! "$DHLEVEL" = "$ORIGDHLEVEL" ]; then
+  rm -rf $DHFPATH
   echo "DH parameters bit setting changed. Deleting old dhparams file."
 fi
 
@@ -88,9 +90,9 @@ else
   ACMESERVER="https://acme-v02.api.letsencrypt.org/directory"
 fi
 
-if [ ! -f "/etc/nginx/dhparams.pem" ]; then
+if [ ! -z "$DHFPATH" && ! -f "$DHFPATH" ]; then
   echo "Creating DH parameters for additional security. This may take a very long time. There will be another message once this process is completed"
-  openssl dhparam -out /etc/nginx/dhparams.pem "$DHLEVEL"
+  openssl dhparam -out $DHFPATH "$DHLEVEL"
   echo "DH parameters successfully created - $DHLEVEL bits"
 else
   echo "$ORIGDHLEVEL bit DH parameters present"
@@ -145,22 +147,9 @@ else
 fi
 
 # setting the validation method to use
-if [ "$VALIDATION" = "dns" ]; then
-  if [ "$DNSPLUGIN" = "route53" ]; then
-    PREFCHAL="--dns-${DNSPLUGIN} --manual-public-ip-logging-ok"
-  else
-    PREFCHAL="--dns-${DNSPLUGIN} --dns-${DNSPLUGIN}-credentials /config/dns-conf/${DNSPLUGIN}.ini --manual-public-ip-logging-ok"
-  fi
-  echo "${VALIDATION} validation via ${DNSPLUGIN} plugin is selected"
-elif [ "$VALIDATION" = "tls-sni" ]; then
+if [ "$VALIDATION" = "tls-sni" ]; then
   PREFCHAL="--non-interactive --standalone --preferred-challenges tls-sni"
   echo "tls-sni validation is selected"
-elif [ "$VALIDATION" = "duckdns" ]; then
-  PREFCHAL="--non-interactive --manual --preferred-challenges dns --manual-public-ip-logging-ok --manual-auth-hook /app/duckdns-txt"
-  chmod +x /app/duckdns-txt
-  echo "duckdns validation is selected"
-  echo "the resulting certificate will only cover the subdomains due to a limitation of duckdns, so it is advised to set the root location to use www.subdomain.duckdns.org"
-  export URL_REAL="-d *.${URL}"
 else
   PREFCHAL="--non-interactive --standalone --preferred-challenges http"
   echo "http validation is selected"
