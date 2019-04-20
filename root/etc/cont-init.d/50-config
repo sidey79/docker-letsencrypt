@@ -82,6 +82,11 @@ if [[ ! -z "$DHFPATH" && ! "$DHLEVEL" = "$ORIGDHLEVEL" ]]; then
   rm -rf $DHFPATH
   echo "DH parameters bit setting changed. Deleting old dhparams file."
 fi
+# verify ssl dh key
+if [[ -f "$DHFPATH" && ! `openssl rsa -in "$DHFPATH" -check`  ]]; then
+  rm -rf $DHFPATH
+  echo "DH SSL Key is not valid, deleting it to allow new generation."
+fi
 
 # if staging is set to true, use the staging server
 if [ "$STAGING" = "true" ]; then
