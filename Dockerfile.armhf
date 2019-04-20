@@ -17,7 +17,6 @@ RUN \
 	git \
 	libressl2.7-libssl \
 	logrotate \
-	nano \
 	openssl \
         curl \
 	gnupg \
