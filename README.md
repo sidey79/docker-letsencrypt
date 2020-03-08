@@ -1,5 +1,12 @@
 Forked from [![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)](https://linuxserver.io)
 
+[![Blog](https://img.shields.io/static/v1.svg?style=flat-square&color=E68523&label=linuxserver.io&message=Blog)](https://blog.linuxserver.io "all the things you can do with our containers including How-To guides, opinions and much more!")
+[![Discord](https://img.shields.io/discord/354974912613449730.svg?style=flat-square&color=E68523&label=Discord&logo=discord&logoColor=FFFFFF)](https://discord.gg/YWrKVTn "realtime support / chat with the community and the team.")
+[![Discourse](https://img.shields.io/discourse/https/discourse.linuxserver.io/topics.svg?style=flat-square&color=E68523&logo=discourse&logoColor=FFFFFF)](https://discourse.linuxserver.io "post on our community forum.")
+[![Fleet](https://img.shields.io/static/v1.svg?style=flat-square&color=E68523&label=linuxserver.io&message=Fleet)](https://fleet.linuxserver.io "an online web interface which displays all of our maintained images.")
+[![GitHub](https://img.shields.io/static/v1.svg?style=flat-square&color=E68523&label=linuxserver.io&message=GitHub&logo=github&logoColor=FFFFFF)](https://github.com/linuxserver "view the source for all of our repositories.")
+[![Open Collective](https://img.shields.io/opencollective/all/linuxserver.svg?style=flat-square&color=E68523&label=Supporters&logo=open%20collective&logoColor=FFFFFF)](https://opencollective.com/linuxserver "please consider helping us by either donating or contributing to our budget")
+
 The [LinuxServer.io](https://linuxserver.io) team brings you another container release featuring :-
 
  * regular and timely application updates
@@ -9,17 +16,24 @@ The [LinuxServer.io](https://linuxserver.io) team brings you another container r
  * regular security updates
 
 Find us at:
-* [Discord](https://discord.gg/YWrKVTn) - realtime support / chat with the community and the team.
-* [IRC](https://irc.linuxserver.io) - on freenode at `#linuxserver.io`. Our primary support channel is Discord.
 * [Blog](https://blog.linuxserver.io) - all the things you can do with our containers including How-To guides, opinions and much more!
+* [Discord](https://discord.gg/YWrKVTn) - realtime support / chat with the community and the team.
+* [Discourse](https://discourse.linuxserver.io) - post on our community forum.
+* [Fleet](https://fleet.linuxserver.io) - an online web interface which displays all of our maintained images.
+* [GitHub](https://github.com/linuxserver) - view the source for all of our repositories.
+* [Open Collective](https://opencollective.com/linuxserver) - please consider helping us by either donating or contributing to our budget
 
 # [linuxserver/letsencrypt](https://github.com/linuxserver/docker-letsencrypt)
-[![](https://img.shields.io/discord/354974912613449730.svg?logo=discord&label=LSIO%20Discord&style=flat-square)](https://discord.gg/YWrKVTn)
-[![](https://images.microbadger.com/badges/version/linuxserver/letsencrypt.svg)](https://microbadger.com/images/linuxserver/letsencrypt "Get your own version badge on microbadger.com")
-[![](https://images.microbadger.com/badges/image/linuxserver/letsencrypt.svg)](https://microbadger.com/images/linuxserver/letsencrypt "Get your own version badge on microbadger.com")
-![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/letsencrypt.svg)
-![Docker Stars](https://img.shields.io/docker/stars/linuxserver/letsencrypt.svg)
-[![Build Status](https://ci.linuxserver.io/buildStatus/icon?job=Docker-Pipeline-Builders/docker-letsencrypt/master)](https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-letsencrypt/job/master/)
+
+[![GitHub Stars](https://img.shields.io/github/stars/linuxserver/docker-letsencrypt.svg?style=flat-square&color=E68523&logo=github&logoColor=FFFFFF)](https://github.com/linuxserver/docker-letsencrypt)
+[![GitHub Release](https://img.shields.io/github/release/linuxserver/docker-letsencrypt.svg?style=flat-square&color=E68523&logo=github&logoColor=FFFFFF)](https://github.com/linuxserver/docker-letsencrypt/releases)
+[![GitHub Package Repository](https://img.shields.io/static/v1.svg?style=flat-square&color=E68523&label=linuxserver.io&message=GitHub%20Package&logo=github&logoColor=FFFFFF)](https://github.com/linuxserver/docker-letsencrypt/packages)
+[![GitLab Container Registry](https://img.shields.io/static/v1.svg?style=flat-square&color=E68523&label=linuxserver.io&message=GitLab%20Registry&logo=gitlab&logoColor=FFFFFF)](https://gitlab.com/Linuxserver.io/docker-letsencrypt/container_registry)
+[![Quay.io](https://img.shields.io/static/v1.svg?style=flat-square&color=E68523&label=linuxserver.io&message=Quay.io)](https://quay.io/repository/linuxserver.io/letsencrypt)
+[![MicroBadger Layers](https://img.shields.io/microbadger/layers/linuxserver/letsencrypt.svg?style=flat-square&color=E68523)](https://microbadger.com/images/linuxserver/letsencrypt "Get your own version badge on microbadger.com")
+[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/letsencrypt.svg?style=flat-square&color=E68523&label=pulls&logo=docker&logoColor=FFFFFF)](https://hub.docker.com/r/linuxserver/letsencrypt)
+[![Docker Stars](https://img.shields.io/docker/stars/linuxserver/letsencrypt.svg?style=flat-square&color=E68523&label=stars&logo=docker&logoColor=FFFFFF)](https://hub.docker.com/r/linuxserver/letsencrypt)
+[![Build Status](https://ci.linuxserver.io/view/all/job/Docker-Pipeline-Builders/job/docker-letsencrypt/job/master/badge/icon?style=flat-square)](https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-letsencrypt/job/master/)
 [![](https://lsio-ci.ams3.digitaloceanspaces.com/linuxserver/letsencrypt/latest/badge.svg)](https://lsio-ci.ams3.digitaloceanspaces.com/linuxserver/letsencrypt/latest/index.html)
 
 [Letsencrypt](https://letsencrypt.org/) sets up an Nginx webserver and reverse proxy with php support and a built-in letsencrypt client that automates free SSL server certificate generation and renewal processes. It also contains fail2ban for intrusion prevention.
@@ -28,7 +42,7 @@ Find us at:
 
 ## Supported Architectures
 
-Our images support multiple architectures such as `x86-64`, `arm64` and `armhf`. We utilise the docker manifest for multi-platform awareness. More information is available from docker [here](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md#manifest-list) and our announcement [here](https://blog.linuxserver.io/2019/02/21/the-lsio-pipeline-project/). 
+Our images support multiple architectures such as `x86-64`, `arm64` and `armhf`. We utilise the docker manifest for multi-platform awareness. More information is available from docker [here](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md#manifest-list) and our announcement [here](https://blog.linuxserver.io/2019/02/21/the-lsio-pipeline-project/).
 
 Simply pulling `linuxserver/letsencrypt` should retrieve the correct image for your arch, but you can also pull specific arch images via tags.
 
@@ -126,6 +140,18 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e STAGING=false` | Set to `true` to retrieve certs in staging mode. Rate limits will be much higher, but the resulting cert will not pass the browser's security test. Only to be used for testing purposes. |
 | `-v /config` | All the config files including the webroot reside here. |
 
+## Environment variables from files (Docker secrets)
+
+You can set any environment variable from a file by using a special prepend `FILE__`. 
+
+As an example:
+
+```
+-e FILE__PASSWORD=/run/secrets/mysecretpassword
+```
+
+Will set the environment variable `PASSWORD` based on the contents of the `/run/secrets/mysecretpassword` file.
+
 ## User / Group Identifiers
 
 When using volumes (`-v` flags) permissions issues can arise between the host OS and the container, we avoid this issue by allowing you to specify the user `PUID` and group `PGID`.
@@ -156,7 +182,7 @@ In this instance `PUID=1000` and `PGID=1000`, to find yours use `id user` as bel
 * You can also use ldap auth for security and access control. A sample, user configurable ldap.conf is provided, and it requires the separate image [linuxserver/ldap-auth](https://hub.docker.com/r/linuxserver/ldap-auth/) to communicate with an ldap server.
 ### Site config and reverse proxy
 * The default site config resides at `/config/nginx/site-confs/default`. Feel free to modify this file, and you can add other conf files to this directory. However, if you delete the `default` file, a new default will be created on container start.
-* Preset reverse proxy config files are added for popular apps. See the `_readme` file under `/config/nginx/proxy_confs` for instructions on how to enable them
+* Preset reverse proxy config files are added for popular apps. See the `README.md` file under `/config/nginx/proxy_confs` for instructions on how to enable them. The preset confs reside in and get imported from [this repo](https://github.com/linuxserver/reverse-proxy-confs).
 * If you wish to hide your site from search engine crawlers, you may find it useful to add this configuration line to your site config, within the server block, above the line where ssl.conf is included
 `add_header X-Robots-Tag "noindex, nofollow, nosnippet, noarchive";`
 This will *ask* Google et al not to index and list your site. Be careful with this, as you will eventually be de-listed if you leave this line in on a site you wish to be present on search engines
@@ -169,6 +195,17 @@ This will *ask* Google et al not to index and list your site. Be careful with th
   1. `cert.pem`, `chain.pem`, `fullchain.pem` and `privkey.pem`, which are generated by letsencrypt and used by nginx and various other apps
   2. `privkey.pfx`, a format supported by Microsoft and commonly used by dotnet apps such as Emby Server (no password)
   3. `priv-fullchain-bundle.pem`, a pem cert that bundles the private key and the fullchain, used by apps like ZNC
+### Using fail2ban
+* This container includes fail2ban set up with 3 jails by default:
+  1. nginx-http-auth
+  2. nginx-badbots
+  3. nginx-botsearch
+* To enable or disable other jails, modify the file `/config/fail2ban/jail.local`
+* To modify filters and actions, instead of editing the `.conf` files, create `.local` files with the same name and edit those because .conf files get overwritten when the actions and filters are updated. `.local` files will append whatever's in the `.conf` files (ie. `nginx-http-auth.conf` --> `nginx-http-auth.local`)
+* You can check which jails are active via `docker exec -it letsencrypt fail2ban-client status`
+* You can check the status of a specific jail via `docker exec -it letsencrypt fail2ban-client status <jail name>`
+* You can unban an IP via `docker exec -it letsencrypt fail2ban-client set <jail name> unbanip <IP>`
+* A list of commands can be found here: https://www.fail2ban.org/wiki/index.php/Commands
 
 
 
@@ -176,32 +213,23 @@ This will *ask* Google et al not to index and list your site. Be careful with th
 
 * Shell access whilst the container is running: `docker exec -it letsencrypt /bin/bash`
 * To monitor the logs of the container in realtime: `docker logs -f letsencrypt`
-* container version number 
+* container version number
   * `docker inspect -f '{{ index .Config.Labels "build_version" }}' letsencrypt`
 * image version number
   * `docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/letsencrypt`
 
 ## Updating Info
 
-Most of our images are static, versioned, and require an image update and container recreation to update the app inside. With some exceptions (ie. nextcloud, plex), we do not recommend or support updating apps inside the container. Please consult the [Application Setup](#application-setup) section above to see if it is recommended for the image.  
-  
-Below are the instructions for updating containers:  
-  
+Most of our images are static, versioned, and require an image update and container recreation to update the app inside. With some exceptions (ie. nextcloud, plex), we do not recommend or support updating apps inside the container. Please consult the [Application Setup](#application-setup) section above to see if it is recommended for the image.
+
+Below are the instructions for updating containers:
+
 ### Via Docker Run/Create
 * Update the image: `docker pull linuxserver/letsencrypt`
 * Stop the running container: `docker stop letsencrypt`
 * Delete the container: `docker rm letsencrypt`
 * Recreate a new container with the same docker create parameters as instructed above (if mapped correctly to a host folder, your `/config` folder and settings will be preserved)
 * Start the new container: `docker start letsencrypt`
-* You can also remove the old dangling images: `docker image prune`
-
-### Via Taisun auto-updater (especially useful if you don't remember the original parameters)
-* Pull the latest image at its tag and replace it with the same env variables in one shot:
-  ```
-  docker run --rm \
-  -v /var/run/docker.sock:/var/run/docker.sock taisun/updater \
-  --oneshot letsencrypt
-  ```
 * You can also remove the old dangling images: `docker image prune`
 
 ### Via Docker Compose
@@ -211,8 +239,79 @@ Below are the instructions for updating containers:
   * or update a single container: `docker-compose up -d letsencrypt`
 * You can also remove the old dangling images: `docker image prune`
 
+### Via Watchtower auto-updater (especially useful if you don't remember the original parameters)
+* Pull the latest image at its tag and replace it with the same env variables in one run:
+  ```
+  docker run --rm \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  containrrr/watchtower \
+  --run-once letsencrypt
+  ```
+
+**Note:** We do not endorse the use of Watchtower as a solution to automated updates of existing Docker containers. In fact we generally discourage automated updates. However, this is a useful tool for one-time manual updates of containers where you have forgotten the original parameters. In the long term, we highly recommend using Docker Compose.
+
+* You can also remove the old dangling images: `docker image prune`
+
+## Building locally
+
+If you want to make local modifications to these images for development purposes or just to customize the logic:
+```
+git clone https://github.com/linuxserver/docker-letsencrypt.git
+cd docker-letsencrypt
+docker build \
+  --no-cache \
+  --pull \
+  -t linuxserver/letsencrypt:latest .
+```
+
+The ARM variants can be built on x86_64 hardware using `multiarch/qemu-user-static`
+```
+docker run --rm --privileged multiarch/qemu-user-static:register --reset
+```
+
+Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64`.
+
 ## Versions
 
+* **06.03.20:** - Implement cert renewal attempt during container start (only if the cert is already expired or will expire within the next 24 hours, otherwise it will be attempted at 2:08am).
+* **05.03.20:** - Use port and proto upstream variables for ldap and default sample confs.
+* **24.02.20:** - Remove world/group read permissions in dns-conf.
+* **23.02.20:** - Add aliyun dns validation plugin.
+* **28.01.20:** - Deprecate tls-sni validation method, remove from docs.
+* **27.01.20:** - Add support for cpanel dns validation.
+* **10.01.20:** - Add support for domeneshop dns validation.
+* **07.01.20:** - Update ciphers from Mozilla ssl-config recommendations.
+* **01.01.20:** - Add support for gandi dns validation.
+* **31.12.19:** - GeoIP2 databases now require personal license keys to download. Auto download is disabled and log message is added.
+* **19.12.19:** - Rebasing to alpine 3.11.
+* **19.12.19:** - Increase large_client_header_buffers in nginx.conf to prevent 414 errors.
+* **18.12.19:** - Add php7-imap and php7-pecl-apcu.
+* **11.12.19:** - Fix Google Cloud DNS to use .json file for authentication.
+* **20.11.19:** - Fix cryptography version mismatch due to pip issue.
+* **17.11.19:** - Add php7-pdo_odbc.
+* **17.11.19:** - Add transip dns validation plugin.
+* **27.10.19:** - Turn off lua resty core to get rid of error message in the log (existing users will have to delete `/config/nginx/nginx.conf` and restart the container).
+* **26.10.19:** - Add new package for stream-geoip2, remove geoip2 module patch.
+* **24.10.19:** - Add php7-pecl-imagick.
+* **23.10.19:** - Update Host header in `proxy.conf` to fix CSRF issues.
+* **12.10.19:** - Add linode dns validation plugin.
+* **23.09.19:** - Move GeoIP2 db to /config to make it persistent.
+* **14.08.19:** - Add inwx dns validation plugin.
+* **06.08.19:** - Add php7-ftp.
+* **04.08.19:** - Add php7-bcmath, php7-pear, php7-xmlrpc.
+* **02.08.19:** - Add php7-ldap, remove geoip v1(deprecated).
+* **01.08.19:** - Mark https redirect block as default_server (effective only for new installs).
+* **31.07.19:** - Create GeoIP2 databse (libmaxminddb) during container start if it doesn't exist.
+* **30.07.19:** - Support main domain via duckdns validation.
+* **29.07.19:** - Enable http to https redirect by default (effective only for new installs).
+* **01.07.19:** - Patch geoip2 module until upstream is fixed.
+* **30.06.19:** - Add geoip2 module.
+* **28.06.19:** - Rebasing to alpine 3.10.
+* **19.06.19:** - Set resolver to docker dns in ssl.conf.
+* **29.05.19:** - Compensate for changes to the reverse-proxy-confs repo.
+* **26.05.19:** - Remove botocore/urllib patch.
+* **08.05.19:** - Remove default.conf when nginx is upgraded in downstream image.
+* **30.04.19:** - Add php-redis.
 * **12.04.19:** - Rebase aarch64 image to 3.9.
 * **25.03.19:** - Rebase aarch64 image back to 3.8 due to python issues (specifically with fail2ban), switch packages to python 3 on amd64 and armhf, clean up pip/python cache to shrink image size.
 * **23.03.19:** - Switching to new Base images, shift to arm32v7 tag.

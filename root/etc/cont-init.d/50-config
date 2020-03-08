@@ -38,14 +38,15 @@ done
 
 # make our folders and links
 mkdir -p \
-	/config/{log/letsencrypt,etc/letsencrypt,crontabs}
-mkdir -p /run/nginx;
-
+	/config/{log/letsencrypt,log/fail2ban,etc/letsencrypt,fail2ban,crontabs} \
+	/var/run/fail2ban
 rm -rf /etc/letsencrypt
 ln -s /config/etc/letsencrypt /etc/letsencrypt
 
 # copy dns default configs
 
+# remove outdated files (remove this action after 2019/08/29)
+rm -f /config/nginx/proxy-confs/_readme /config/nginx/proxy-confs/mytinytodo.subfolder.conf.example
 
 
 # copy crontab 
@@ -53,7 +54,7 @@ ln -s /config/etc/letsencrypt /etc/letsencrypt
 	cp /etc/crontabs/root /config/crontabs/
 
 # check to make sure DNSPLUGIN is selected if dns validation is used
-[[ "$VALIDATION" = "dns" ]] && [[ ! "$DNSPLUGIN" =~ ^(cloudflare|cloudxns|digitalocean|dnsimple|dnsmadeeasy|google|luadns|nsone|ovh|rfc2136|route53)$ ]] && \
+[[ "$VALIDATION" = "dns" ]] && [[ ! "$DNSPLUGIN" =~ ^(aliyun|cloudflare|cloudxns|cpanel|digitalocean|dnsimple|dnsmadeeasy|domeneshop|gandi|google|inwx|linode|luadns|nsone|ovh|rfc2136|route53|transip)$ ]] && \
   echo "Please set the DNSPLUGIN variable to a valid plugin name. See docker info for more details." && \
   sleep infinity
 
@@ -154,8 +155,8 @@ fi
 
 # setting the validation method to use
 if [ "$VALIDATION" = "tls-sni" ]; then
-  PREFCHAL="--non-interactive --standalone --preferred-challenges tls-sni"
-  echo "tls-sni validation is selected"
+  PREFCHAL="--non-interactive --standalone --preferred-challenges http"
+  echo "*****tls-sni validation has been deprecated, attempting http validation instead"
 else
   PREFCHAL="--non-interactive --standalone --preferred-challenges http"
   echo "http validation is selected"
@@ -186,6 +187,13 @@ fi
 # saving new variables
 echo -e "ORIGURL=\"$URL\" ORIGSUBDOMAINS=\"$SUBDOMAINS\" ORIGONLY_SUBDOMAINS=\"$ONLY_SUBDOMAINS\" ORIGEXTRA_DOMAINS=\"$EXTRA_DOMAINS\" ORIGDHLEVEL=\"$DHLEVEL\" ORIGVALIDATION=\"$VALIDATION\" ORIGDNSPLUGIN=\"$DNSPLUGIN\" ORIGSTAGING=\"$STAGING\" ORIGDUCKDNSTOKEN=\"$DUCKDNSTOKEN\"" > /config/donoteditthisfile.conf
 
+# alter extension for error message
+if [ "$DNSPLUGIN" = "google" ]; then
+  FILENAME="$DNSPLUGIN.json"
+else
+  FILENAME="$DNSPLUGIN.ini"
+fi
+
 # generating certs if necessary
 if [ ! -f "/config/keys/letsencrypt/fullchain.pem" ]; then
   echo "Generating new certificate"
@@ -195,7 +203,7 @@ if [ ! -f "/config/keys/letsencrypt/fullchain.pem" ]; then
     cd /config/keys/letsencrypt || exit
   else
     if [ "$VALIDATION" = "dns" ]; then
-      echo "ERROR: Cert does not exist! Please see the validation error above. Make sure you entered correct credentials into the /config/dns-conf/${DNSPLUGIN}.ini file."
+      echo "ERROR: Cert does not exist! Please see the validation error above. Make sure you entered correct credentials into the /config/dns-conf/${FILENAME} file."
     elif [ "$VALIDATION" = "duckdns" ]; then
       echo "ERROR: Cert does not exist! Please see the validation error above. Make sure your DUCKDNSTOKEN is correct."
     else
@@ -211,9 +219,17 @@ else
   echo "Certificate exists; parameters unchanged; starting nginx"
 fi
 
+# logfiles needed by fail2ban
+[[ ! -f /config/log/nginx/error.log ]] && \
+	touch /config/log/nginx/error.log
+[[ ! -f /config/log/nginx/access.log ]] && \
+	touch /config/log/nginx/access.log
+
 # permissions
 chown -R abc:abc \
 	/config
 chmod -R 0644 /etc/logrotate.d
 chmod -R +r /config/log
 chmod +x /app/le-renew.sh
+chmod 700 /defaults/dns-conf
+chmod 600 /defaults/dns-conf/*

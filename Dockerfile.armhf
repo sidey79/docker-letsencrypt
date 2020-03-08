@@ -1,4 +1,4 @@
-FROM lsiobase/alpine:arm32v7-3.10
+FROM lsiobase/nginx:arm32v7-3.11
 
 # set version label
 ARG BUILD_DATE
@@ -13,6 +13,7 @@ ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=2
 RUN \
  echo "**** install runtime packages ****" && \
  apk add --no-cache --upgrade \
+	fail2ban \
         apache2-utils \
 	git \
 	libressl2.7-libssl \
@@ -39,8 +40,11 @@ RUN \
 	pip && \
  pip3 install -U \
 	${CERTBOT} \
+	cryptography \
 	requests && \
  echo "**** cleanup ****" && \
+ apk del --purge \
+	build-dependencies && \
  for cleanfiles in *.pyc *.pyo; \
 	do \
 	find /usr/lib/python3.*  -iname "${cleanfiles}" -exec rm -f '{}' + \
